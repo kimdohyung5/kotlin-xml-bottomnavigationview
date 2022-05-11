@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addFragment">
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.kimdo.bottomviewtest.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/toUpdateFromAdd"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/toDeleteFromAdd"
+            app:destination="@id/deleteFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_addInsideFragment"
+            app:destination="@id/addInsideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteFragment"
+        android:name="com.kimdo.bottomviewtest.DeleteFragment"
+        android:label="fragment_delete"
+        tools:layout="@layout/fragment_delete" >
+        <action
+            android:id="@+id/toAddFromDelete"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/toUpdateFromDelete"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.kimdo.bottomviewtest.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/toDeleteFromUpdate"
+            app:destination="@id/deleteFragment" />
+        <action
+            android:id="@+id/toAddFromUpdate"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addInsideFragment"
+        android:name="com.kimdo.bottomviewtest.AddInsideFragment"
+        android:label="fragment_add_inside"
+        tools:layout="@layout/fragment_add_inside" >
+        <action
+            android:id="@+id/action_addInsideFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+</navigation>
